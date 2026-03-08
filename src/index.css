@@ -1,0 +1,223 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
+
+@layer base {
+  :root {
+    /* Warm kitchen palette */
+    --background: 35 40% 97%;
+    --foreground: 25 30% 18%;
+
+    --card: 35 35% 95%;
+    --card-foreground: 25 30% 18%;
+
+    --popover: 35 35% 95%;
+    --popover-foreground: 25 30% 18%;
+
+    /* Terracotta primary */
+    --primary: 16 65% 55%;
+    --primary-foreground: 35 40% 98%;
+
+    /* Soft sage secondary */
+    --secondary: 140 20% 88%;
+    --secondary-foreground: 140 30% 25%;
+
+    /* Warm cream muted */
+    --muted: 35 25% 90%;
+    --muted-foreground: 25 15% 45%;
+
+    /* Sage accent */
+    --accent: 140 25% 75%;
+    --accent-foreground: 140 35% 20%;
+
+    --destructive: 0 65% 55%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 30 20% 85%;
+    --input: 30 20% 85%;
+    --ring: 16 65% 55%;
+
+    --radius: 1rem;
+
+    /* Custom tokens */
+    --warm-brown: 25 35% 30%;
+    --soft-orange: 25 70% 65%;
+    --cream: 40 45% 94%;
+    --sage: 140 25% 70%;
+    --sage-dark: 140 30% 35%;
+    --terracotta: 16 65% 55%;
+    --terracotta-light: 16 60% 75%;
+    --terracotta-dark: 16 70% 40%;
+
+    /* Gradients */
+    --gradient-warm: linear-gradient(135deg, hsl(35 40% 97%) 0%, hsl(30 35% 92%) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(35 35% 97%) 0%, hsl(35 30% 93%) 100%);
+    --gradient-primary: linear-gradient(135deg, hsl(16 65% 55%) 0%, hsl(25 70% 60%) 100%);
+    --gradient-accent: linear-gradient(135deg, hsl(140 25% 75%) 0%, hsl(140 30% 65%) 100%);
+
+    /* Shadows */
+    --shadow-soft: 0 4px 20px -4px hsl(25 30% 18% / 0.08);
+    --shadow-card: 0 8px 30px -8px hsl(25 30% 18% / 0.1);
+    --shadow-glow: 0 0 40px hsl(16 65% 55% / 0.15);
+
+    --sidebar-background: 35 35% 95%;
+    --sidebar-foreground: 25 30% 18%;
+    --sidebar-primary: 16 65% 55%;
+    --sidebar-primary-foreground: 35 40% 98%;
+    --sidebar-accent: 140 25% 75%;
+    --sidebar-accent-foreground: 140 35% 20%;
+    --sidebar-border: 30 20% 85%;
+    --sidebar-ring: 16 65% 55%;
+  }
+
+  .dark {
+    --background: 25 25% 10%;
+    --foreground: 35 30% 92%;
+
+    --card: 25 20% 14%;
+    --card-foreground: 35 30% 92%;
+
+    --popover: 25 20% 14%;
+    --popover-foreground: 35 30% 92%;
+
+    --primary: 16 60% 60%;
+    --primary-foreground: 25 25% 10%;
+
+    --secondary: 140 15% 22%;
+    --secondary-foreground: 140 20% 80%;
+
+    --muted: 25 15% 20%;
+    --muted-foreground: 30 15% 60%;
+
+    --accent: 140 20% 25%;
+    --accent-foreground: 140 25% 85%;
+
+    --destructive: 0 60% 45%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 25 15% 22%;
+    --input: 25 15% 22%;
+    --ring: 16 60% 60%;
+
+    --sidebar-background: 25 20% 12%;
+    --sidebar-foreground: 35 30% 92%;
+    --sidebar-primary: 16 60% 60%;
+    --sidebar-primary-foreground: 25 25% 10%;
+    --sidebar-accent: 140 20% 25%;
+    --sidebar-accent-foreground: 140 25% 85%;
+    --sidebar-border: 25 15% 22%;
+    --sidebar-ring: 16 60% 60%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'DM Sans', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Fraunces', serif;
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: 'Fraunces', serif;
+  }
+
+  .font-body {
+    font-family: 'DM Sans', sans-serif;
+  }
+
+  .bg-gradient-warm {
+    background: var(--gradient-warm);
+  }
+
+  .bg-gradient-card {
+    background: var(--gradient-card);
+  }
+
+  .bg-gradient-primary {
+    background: var(--gradient-primary);
+  }
+
+  .shadow-soft {
+    box-shadow: var(--shadow-soft);
+  }
+
+  .shadow-card {
+    box-shadow: var(--shadow-card);
+  }
+
+  .shadow-glow {
+    box-shadow: var(--shadow-glow);
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(var(--muted));
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--border));
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--muted-foreground) / 0.3);
+}
+
+/* Animations */
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slide-up {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse-soft {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.4s ease-out forwards;
+}
+
+.animate-slide-up {
+  animation: slide-up 0.5s ease-out forwards;
+}
+
+.animate-pulse-soft {
+  animation: pulse-soft 2s ease-in-out infinite;
+}
+
+@media print {
+  body {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  .print\:hidden {
+    display: none !important;
+  }
+}
